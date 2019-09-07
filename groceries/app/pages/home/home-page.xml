@@ -1,0 +1,25 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd" actionBarHidden="true">
+    <StackLayout>
+        <StackLayout id="stack-logo">
+            <Image src="res://groceries_logo" stretch="fill"/>
+            <Label text="Boodschappenlijstje" class="roboto-medium" textWrap="true"/>
+        </StackLayout>
+        
+        <StackLayout id="stack-buttons">
+            <Button class="btn">
+                <FormattedString>
+                    <Span text="&#43;&#x000a;" fontSize="30"/>
+                    <Span text="Nieuw" fontSize="14" class="roboto-medium"/>
+                </FormattedString>
+            </Button>
+
+            <Button class="btn">
+                <FormattedString>
+                    <Span text="&#9776;&#x000a;" fontSize="30"/>
+                    <Span text="Lijstjes" fontSize="14" class="roboto-medium"/>
+                </FormattedString>
+            </Button>
+        </StackLayout>
+    </StackLayout>
+        
+</Page>

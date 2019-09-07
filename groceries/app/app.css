@@ -19,3 +19,8 @@ components that have the btn class name.
 .btn {
     font-size: 18;
 }
+
+.roboto-medium {
+    font-family: "Roboto", "Roboto-Medium";
+    font-weight: 500;
+}

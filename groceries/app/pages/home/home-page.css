@@ -1,0 +1,27 @@
+#stack-logo {
+    margin-top: 7%;
+    margin-bottom: 7%;
+}
+
+StackLayout {
+    color: #000000;
+}
+
+StackLayout > Image {
+    height: 20%;
+    width: 20%;
+}
+
+StackLayout > Label {
+    text-align: center;
+}
+
+.btn {
+    width: 27%;
+    height: 27%;
+    border-radius: 20px;
+    color: #000000;
+    background-color: #ff6600;
+}
+
+
