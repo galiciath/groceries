@@ -2,7 +2,7 @@
     <StackLayout>
         <StackLayout id="stack-logo">
             <Image src="res://groceries_logo" stretch="fill"/>
-            <Label text="Boodschappenlijstje" class="roboto-medium" textWrap="true"/>
+            <Label text="Boodschappenlijstje" fontSize="20" class="roboto-medium" textWrap="true"/>
         </StackLayout>
         
         <StackLayout id="stack-buttons">
