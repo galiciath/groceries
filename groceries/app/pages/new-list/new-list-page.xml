@@ -1,3 +1,15 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd">
-    <Label text="new list page"/>
+<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="onPageLoaded">
+    <Page.actionBar>
+        <ActionBar title="Nieuw Lijstje">
+        <NavigationButton android.systemIcon="ic_menu_back" tap="onNavBackTap"/>
+            <ActionBar.actionItems>
+                <ActionItem icon="" text="Aanmaken" tap="" ios.position="right"/>
+            </ActionBar.actionItems>
+        </ActionBar>
+    </Page.actionBar>
+
+    <StackLayout>
+        <Label class="roboto-medium" fontSize="16" text="Naam" textWrap="true" />
+        <TextField hint="Bv. Beenhouwer" text="{{  }}" />
+    </StackLayout>
 </Page>
