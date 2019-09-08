@@ -1,4 +1,4 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd" actionBarHidden="true">
+<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="onPageLoaded" actionBarHidden="true">
     <StackLayout>
         <StackLayout id="stack-logo">
             <Image src="res://groceries_logo" stretch="fill"/>
@@ -13,7 +13,7 @@
                 </FormattedString>
             </Button>
 
-            <Button class="btn">
+            <Button class="btn" tap="onBtnListsTap">
                 <FormattedString>
                     <Span text="&#9776;&#x000a;" fontSize="30"/>
                     <Span text="Lijstjes" fontSize="14" class="roboto-medium"/>
