@@ -6,7 +6,7 @@
         </StackLayout>
         
         <StackLayout id="stack-buttons">
-            <Button class="btn">
+            <Button class="btn" tap="onBtnNewTap">
                 <FormattedString>
                     <Span text="&#43;&#x000a;" fontSize="30"/>
                     <Span text="Nieuw" fontSize="14" class="roboto-medium"/>
@@ -20,6 +20,5 @@
                 </FormattedString>
             </Button>
         </StackLayout>
-    </StackLayout>
-        
+    </StackLayout>     
 </Page>
