@@ -9,3 +9,4 @@ export function onPageLoaded(args: EventData){
     page = args.object as Page;
     page.bindingContext = viewModel;
 }
+

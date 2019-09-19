@@ -11,7 +11,9 @@ export class SavedListsViewModel extends Observable {
         super();
         this.shoppingListsRepository = new ShoppingListRepository();
         try{
-            this.shoppingListsRepository.findAll();
+            this.shoppingListsRepository.findAll().then((lists: ShoppingList[]) => {
+                this.ShoppingLists = lists;
+            })
         } catch(error) {
             console.log(error);
         }
@@ -24,6 +26,6 @@ export class SavedListsViewModel extends Observable {
 
     set ShoppingLists(value: ShoppingList[]){
         this.shoppingLists = value;
+        this.notifyPropertyChange('ShoppingLists', value);
     }
-
 }

@@ -1,4 +1,6 @@
-export class ShoppingList {
+import { Observable } from "tns-core-modules/ui/page/page";
+
+export class ShoppingList extends Observable{
 
     private id: number;
 
@@ -6,7 +8,8 @@ export class ShoppingList {
 
     private createdAt: Date;
 
-    constructor(name: string) {
+    constructor(name: string) {+
+        super();
         this.Name = name;
         this.createdAt = new Date();
     }
@@ -29,6 +32,13 @@ export class ShoppingList {
 
     get CreatedAt(): Date{
         return this.createdAt;
+    }
+
+    get CreatedAtLocaleString(): string {
+        if(this.CreatedAt === undefined){
+            return undefined;
+        }
+        return `${this.CreatedAt.getDate()}-${this.CreatedAt.getMonth()}-${this.CreatedAt.getFullYear()}`;
     }
 
     set CreatedAt(value: Date){

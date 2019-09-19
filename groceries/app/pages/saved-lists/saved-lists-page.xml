@@ -1,3 +1,10 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="onPageLoaded">
-    <Label text="Saved lists page"/>
+<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="onPageLoaded" actionBarHidden="true">
+    <ListView items="{{ ShoppingLists }}">
+        <ListView.itemTemplate>
+            <StackLayout>
+                <Label text="{{ Name }}" textWrap="true" />
+                <Label text="{{'Aangemaakt op ' +  CreatedAtLocaleString }}" textWrap="true" /> 
+            </StackLayout>
+        </ListView.itemTemplate>
+    </ListView>
 </Page>
