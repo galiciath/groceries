@@ -5,7 +5,6 @@
                 <Label class="listItem-name roboto-medium" text="{{ Name }}" textWrap="true" />
                 <Label id="footer" text="{{'Aangemaakt op ' +  CreatedAtLocaleString }}" textWrap="true" /> 
             </StackLayout>
-            
         </ListView.itemTemplate>
     </ListView>
 </Page>

@@ -16,7 +16,9 @@ export class NewListViewModel extends Observable {
         } else {
             let shoppinglist = new ShoppingList(this.ListName);
             let repo: ShoppingListRepository = new ShoppingListRepository();
-            return await repo.addList(shoppinglist);
+            shoppinglist = await repo.addList(shoppinglist);
+            this.ListName = "";
+            return shoppinglist
         }
     }
 
@@ -26,5 +28,6 @@ export class NewListViewModel extends Observable {
 
     set ListName(value: string) {
         this.listName = value;
+        this.notifyPropertyChange('ListName',value);
     }
 }

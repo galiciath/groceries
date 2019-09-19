@@ -3,7 +3,6 @@ ListView > StackLayout{
     padding-left: 10%;
     padding-top: 5%;
     padding-bottom: 10%;
-    height: fit-content;
     position: relative;
     /*border-color: black;
     border-width: 1;
