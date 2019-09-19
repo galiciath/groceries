@@ -21,6 +21,6 @@ export async function onCreateTap(): Promise<void> {
     frame.navigate("pages/shopping-list/shopping-list-page");  
     
   } catch (error) {
-      console.log('empty name')
+      console.log(error);
   }
 }
