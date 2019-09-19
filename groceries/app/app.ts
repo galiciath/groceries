@@ -5,20 +5,38 @@ purpose of the file is to pass control to the app’s first module.
 */
 
 import * as application from "tns-core-modules/application";
-let sqLite = require('nativescript-sqlite');
+let SQLite = require('nativescript-sqlite');
 
-initDatabase();
-application.run({ moduleName: "app-root" });
+//set parameter true to delete all tables
+bootup(false);
 
-function initDatabase(): void {
-    console.log('<------------------------------Database Start--------------------------->')
+async function initDatabase():  Promise<void>{
     let sql = "CREATE TABLE IF NOT EXISTS shoppinglists " +
               "(id INTEGER PRIMARY KEY AUTOINCREMENT," +
               "name varchar(255))"
+    try{
+        let dbConnection = await new SQLite("groceries.db");
+        console.log('Database connection established');
+        await dbConnection.execSQL(sql);
+    } catch(error){
+        console.log('Database error:')
+        console.log(error);
+    }
+}
 
-    new sqLite("groceries.db").then(db => {
-        db.execSQL(sql).then(db => console.log("success")).catch(error => console.log(error))
-    })
+async function dropTables(): Promise<void>{
+    let dropShoppingListsStatement: string = "DROP TABLE shoppinglists";
+    let dbConnection = await new SQLite("groceries.db");
+    await dbConnection.execSQL(dropShoppingListsStatement);
+    console.log("database cleared");
+}
+
+async function bootup(cleanup: boolean) {
+    if(cleanup){
+        await dropTables();
+    }
+    await initDatabase();
+    application.run({ moduleName: "app-root" });
 }
 
 /*
