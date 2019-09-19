@@ -3,13 +3,14 @@
         <ActionBar title="Nieuw Lijstje">
         <NavigationButton android.systemIcon="ic_menu_back" tap="onNavBackTap"/>
             <ActionBar.actionItems>
-                <ActionItem icon="" text="Aanmaken" tap="" ios.position="right"/>
+                <ActionItem icon="" text="Aanmaken" tap="onCreateTap"
+                 ios.position="right"/>
             </ActionBar.actionItems>
         </ActionBar>
     </Page.actionBar>
 
     <StackLayout>
         <Label class="roboto-medium" fontSize="16" text="Naam" textWrap="true" />
-        <TextField hint="Bv. Beenhouwer" text="{{  }}" />
+        <TextField hint="Bv. Beenhouwer" text="{{ ListName }}" class="{{ isInputValid() ? 'valid' : 'invalid' }}"/>
     </StackLayout>
 </Page>
