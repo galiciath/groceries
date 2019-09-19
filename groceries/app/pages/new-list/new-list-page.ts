@@ -17,7 +17,9 @@ export function onNavBackTap(args: EventData): void {
 
 export async function onCreateTap(): Promise<void> {
   try {
-    let shoppingList = await viewModel.createList();    
+    let shoppingList = await viewModel.createList();  
+    frame.navigate("pages/shopping-list/shopping-list-page");  
+    
   } catch (error) {
       console.log('empty name')
   }
