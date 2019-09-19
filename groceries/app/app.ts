@@ -13,7 +13,7 @@ bootup(false);
 async function initDatabase():  Promise<void>{
     let sql = "CREATE TABLE IF NOT EXISTS shoppinglists " +
               "(id INTEGER PRIMARY KEY AUTOINCREMENT," +
-              "name varchar(255))"
+              "name varchar(255), created_at DATE)"
     try{
         let dbConnection = await new SQLite("groceries.db");
         console.log('Database connection established');
