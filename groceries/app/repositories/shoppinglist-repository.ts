@@ -7,7 +7,8 @@ export class ShoppingListRepository {
     async addList(shoppingList: ShoppingList): Promise<ShoppingList>{
         let sqlStatement = `INSERT INTO shoppinglists (name) VALUES ('${shoppingList.Name}')`;
         let connection = await this.getConnection();
-        await connection.execSQL(sqlStatement);
+        let insertedId = await connection.execSQL(sqlStatement);
+        shoppingList.Id = insertedId;
         return shoppingList;
     }
 

@@ -16,8 +16,7 @@ export class NewListViewModel extends Observable {
         } else {
             let shoppinglist = new ShoppingList(this.ListName);
             let repo: ShoppingListRepository = new ShoppingListRepository();
-            repo.addList(shoppinglist);
-            return shoppinglist;
+            return await repo.addList(shoppinglist);
         }
     }
 
