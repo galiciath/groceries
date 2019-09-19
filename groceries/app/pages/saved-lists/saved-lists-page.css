@@ -1,0 +1,18 @@
+ListView > StackLayout{
+    width: 97%;
+    padding-left: 10%;
+    padding-top: 5%;
+    padding-bottom: 10%;
+    height: fit-content;
+    position: relative;
+    /*border-color: black;
+    border-width: 1;
+    border-style: solid;
+    border-radius: 15px;*/
+}
+
+.listItem-name{
+    font-size: 20px;
+    padding-bottom: 4%;
+}
+

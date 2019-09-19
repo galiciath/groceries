@@ -1,10 +1,11 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd" loaded="onPageLoaded" actionBarHidden="true">
     <ListView items="{{ ShoppingLists }}">
-        <ListView.itemTemplate>
+        <ListView.itemTemplate class="test">
             <StackLayout>
-                <Label text="{{ Name }}" textWrap="true" />
-                <Label text="{{'Aangemaakt op ' +  CreatedAtLocaleString }}" textWrap="true" /> 
+                <Label class="listItem-name roboto-medium" text="{{ Name }}" textWrap="true" />
+                <Label id="footer" text="{{'Aangemaakt op ' +  CreatedAtLocaleString }}" textWrap="true" /> 
             </StackLayout>
+            
         </ListView.itemTemplate>
     </ListView>
 </Page>
