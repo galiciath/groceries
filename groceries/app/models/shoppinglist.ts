@@ -4,8 +4,11 @@ export class ShoppingList {
 
     private name: string;
 
+    private createdAt: Date;
+
     constructor(name: string) {
         this.Name = name;
+        this.createdAt = new Date();
     }
 
     get Name(): string{
@@ -22,6 +25,14 @@ export class ShoppingList {
 
     set Id(value: number){
         this.id = value;
+    }
+
+    get CreatedAt(): Date{
+        return this.createdAt;
+    }
+
+    set CreatedAt(value: Date){
+        this.createdAt = value;
     }
 
 
