@@ -1,5 +1,6 @@
 import { Observable } from "tns-core-modules/ui/page/page";
 import { ShoppingList } from "~/models/shoppinglist";
+import { ShoppingListRepository } from "~/repositories/shoppinglist-repository";
 
 export class NewListViewModel extends Observable {
 
@@ -13,7 +14,10 @@ export class NewListViewModel extends Observable {
         if(!this.isInputValid()) {
             throw new Error();
         } else {
-            return new ShoppingList(this.ListName);
+            let shoppinglist = new ShoppingList(this.ListName);
+            let repo: ShoppingListRepository = new ShoppingListRepository();
+            repo.addList(shoppinglist);
+            return shoppinglist;
         }
     }
 
