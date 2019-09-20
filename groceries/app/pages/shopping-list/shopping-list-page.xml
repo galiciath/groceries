@@ -1,4 +1,16 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="onLoaded" navigatedTo="onNavigatedTo">
-    <Label text="Shopping list" textWrap="true" />
+<Page xmlns="http://www.nativescript.org/tns.xsd" navigatedTo="onNavigatedTo" actionBarHidden="{{ !isShoppingListPresent() }}">
+    <Page.actionBar>
+        <ActionBar title="{{ ShoppingList.name }}" icon="">
+            <NavigationButton text="Back" icon="" tap="" />
+            <!--<ActionBar.actionItems>
+                <ActionItem icon="" text="Left" tap="" ios.position="left" />
+                <ActionItem icon="" text="Right" tap="" ios.position="right" />
+            </ActionBar.actionItems>-->
+        </ActionBar>
+    </Page.actionBar>
     
+    <StackLayout>
+        <ActivityIndicator class="{{ isShoppingListPresent() ? 'hide' : 'show' }}" busy="{{ !isShoppingListPresent() }}" width="50" height="50" color="#ff6600"/>
+        <Label text="Shopping list" textWrap="true" />
+    </StackLayout>
 </Page>

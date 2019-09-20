@@ -1,5 +1,5 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd" loaded="onPageLoaded" actionBarHidden="true">
-    <ListView items="{{ ShoppingLists }}">
+    <ListView items="{{ ShoppingLists }}" itemTap="onListItemTap">
         <ListView.itemTemplate class="test">
             <StackLayout>
                 <Label class="listItem-name roboto-medium" text="{{ Name }}" textWrap="true" />
