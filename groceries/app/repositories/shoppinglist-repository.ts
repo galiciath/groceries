@@ -23,6 +23,13 @@ export class ShoppingListRepository {
         return shoppingLists;
     }
 
+    async findById(id: number): Promise<ShoppingList> {
+        let sqlStatement: string = `SELECT * FROM shoppinglists WHERE id = ${id}`;
+        let connection = await this.getConnection();
+        let resultSet = await connection.get(sqlStatement);
+        return this.mapper.map(resultSet);
+    }
+
     async addList(shoppingList: ShoppingList): Promise<ShoppingList>{
         let sqlStatement = `INSERT INTO shoppinglists (name, created_at) VALUES ('${shoppingList.Name}', '${shoppingList.CreatedAt.toLocaleDateString()}')`;
         let connection = await this.getConnection();
