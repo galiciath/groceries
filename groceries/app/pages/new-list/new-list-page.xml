@@ -9,7 +9,7 @@
         </ActionBar>
     </Page.actionBar>
 
-    <StackLayout>
+    <StackLayout class="container-input">
         <Label class="roboto-medium" fontSize="16" text="Naam" textWrap="true" />
         <TextField hint="Bv. Beenhouwer" text="{{ ListName }}" class="{{ isInputValid() ? 'valid' : 'invalid' }}"/>
     </StackLayout>

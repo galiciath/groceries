@@ -1,4 +1,22 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="onLoaded" navigatedTo="onNavigatedTo">
-    <Label text="new item page" textWrap="true" />
+<Page xmlns="http://www.nativescript.org/tns.xsd" navigatedTo="onNavigatedTo">
+    <GridLayout rows="*" columns="*" width="100%" height="100%">
+        <StackLayout>
+           <StackLayout class="container-input">
+                <Label text="Productnaam" class="roboto-medium" fontSize="16" textWrap="true" />
+                <TextField hint="" text="" /> 
+            </StackLayout>
+            <StackLayout class="container-input">
+                <Label text="Hoeveelheid" class="roboto-medium" fontSize="16" textWrap="true" />
+                <TextField hint="" text="{{  }}" id="textfield-quantity" horizontalAlignment="left"/> 
+            </StackLayout>
+            <StackLayout class="container-input">
+                <Label text="Eenheid" class="roboto-medium" fontSize="16" textWrap="true" />
+                <Label text="Kilogram" textWrap="true" tap="onUnitTap"/>
+            </StackLayout>
+        </StackLayout>
+        <DockLayout id="dialog" visibility="collapse" verticalAlignment="bottom">
+            <ListPicker items="{{ Units }}" selectedIndex="" verticalAlignment="bottom"></ListPicker>
+        </DockLayout>    
+    </GridLayout>
     
 </Page>
