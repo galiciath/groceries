@@ -21,3 +21,7 @@ export function onNavBackTap(): void{
     };
     frame.navigate(navEntry);
 }
+
+export function onNewItemTap(): void{
+    frame.navigate('pages/new-item/new-item-page');
+}

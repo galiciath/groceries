@@ -2,10 +2,9 @@
     <Page.actionBar>
         <ActionBar title="{{ ShoppingList.Name }}" icon="">
             <NavigationButton android.systemIcon="ic_menu_back" tap="onNavBackTap"/>
-            <!--<ActionBar.actionItems>
-                <ActionItem icon="" text="Left" tap="" ios.position="left" />
-                <ActionItem icon="" text="Right" tap="" ios.position="right" />
-            </ActionBar.actionItems>-->
+            <ActionBar.actionItems>
+                <ActionItem icon="res://baseline_add_black_36" tap="onNewItemTap" ios.position="right" />
+            </ActionBar.actionItems>
         </ActionBar>
     </Page.actionBar>
     
