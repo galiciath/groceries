@@ -1,13 +1,13 @@
 import { NavigatedData, Page, getViewById } from "tns-core-modules/ui/page/page";
 import { NewItemViewModel } from "./new-item-view-model";
-import { DockLayout, Dock } from 'tns-core-modules/ui/layouts/dock-layout/dock-layout'
+import { DockLayout } from 'tns-core-modules/ui/layouts/dock-layout/dock-layout'
 
 let page: Page = undefined;
 let viewModel: NewItemViewModel = undefined;
 let dialog: DockLayout = undefined;
 let dialogOpen: boolean = false;
 
-const ANIMATION_DURATION: number = 1000; //miliseconds
+const ANIMATION_DURATION: number = 750; //miliseconds
 const LISTPICKER_ANIMATION_INTERVAL: number = 15; //miliseconds
 const LISTPICKER_ANIMATION_UNITS: number = 150;
 
@@ -29,7 +29,6 @@ function toggleDialog(){
 }
 
 function openDialog(totalUnits: number, animationDuration: number){
-    console.log('opening');
     let unitsPerInterval = (totalUnits / animationDuration) * LISTPICKER_ANIMATION_INTERVAL;
     let startY: number = totalUnits;
     let currentY: number = startY;
@@ -48,7 +47,6 @@ function openDialog(totalUnits: number, animationDuration: number){
 }
 
 function closeDialog(totalUnits: number, animationDuration: number){
-    console.log('closing');
     let unitsPerInterval = (totalUnits / animationDuration) * LISTPICKER_ANIMATION_INTERVAL;
     let startY: number = 0;
     let currentY: number = 0;

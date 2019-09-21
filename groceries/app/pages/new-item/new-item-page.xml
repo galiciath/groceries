@@ -11,7 +11,10 @@
             </StackLayout>
             <StackLayout class="container-input">
                 <Label text="Eenheid" class="roboto-medium" fontSize="16" textWrap="true" />
-                <Label text="Kilogram" textWrap="true" tap="onUnitTap"/>
+                <StackLayout id="container-unit" orientation="horizontal" tap="onUnitTap">
+                  <Label text="Kilogram" textWrap="true" />
+                  <Image id="icon-listpicker" src="res://baseline_arrow_drop_down_black_24" stretch="none" />  
+                </StackLayout>
             </StackLayout>
         </StackLayout>
         <DockLayout id="dialog" visibility="collapse" verticalAlignment="bottom">
