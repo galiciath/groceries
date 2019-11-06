@@ -5,9 +5,10 @@ import { ShoppingListViewModel } from "./shopping-list-view-model";
 let page: Page = undefined;
 let frame: Frame = undefined;
 let viewModel: ShoppingListViewModel = undefined;
+let shoppingListId: number;
 
 export function onNavigatedTo(args: NavigatedData): void{
-    let shoppingListId: number = args.context['shoppingListId'] as number;
+    shoppingListId = args.context['shoppingListId'] as number;
     viewModel = new ShoppingListViewModel(shoppingListId);
     page = args.object as Page;
     page.bindingContext = viewModel;
@@ -23,5 +24,12 @@ export function onNavBackTap(): void{
 }
 
 export function onNewItemTap(): void{
-    frame.navigate('pages/new-item/new-item-page');
+    let navContext: object = {
+        'shoppingListId': shoppingListId
+    };
+    let navEntry: NavigationEntry = {
+        moduleName: 'pages/new-item/new-item-page',
+        context: navContext
+    };
+    frame.navigate(navEntry);
 }

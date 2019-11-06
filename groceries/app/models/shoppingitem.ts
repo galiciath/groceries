@@ -1,6 +1,6 @@
 import { Unit } from "./units";
 
-export class Item {
+export class ShoppingItem {
 
     private quantity: number;
 

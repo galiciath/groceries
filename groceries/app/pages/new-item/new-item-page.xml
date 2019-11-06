@@ -1,9 +1,9 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd" navigatedTo="onNavigatedTo">
      <Page.actionBar>
         <ActionBar id="btn-save" title="Nieuw item" icon="">
-            <NavigationButton android.systemIcon="ic_menu_back" tap=""/>
+            <NavigationButton android.systemIcon="ic_menu_back" tap="{{ onNavigateBackTap }}"/>
             <ActionBar.actionItems>
-                <ActionItem text="{{ ShowSave ? 'Opslaan' : '' }}" tap="onNewItemTap" ios.position="right" />
+                <ActionItem text="{{ ShowSave ? 'Opslaan' : '' }}" tap="{{ onSaveItemTap }}" ios.position="right" />
             </ActionBar.actionItems>
         </ActionBar>
     </Page.actionBar>

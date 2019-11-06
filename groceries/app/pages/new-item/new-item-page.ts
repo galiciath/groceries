@@ -13,7 +13,8 @@ const LISTPICKER_ANIMATION_INTERVAL: number = 15; //miliseconds
 const LISTPICKER_ANIMATION_UNITS: number = 150;
 
 export function onNavigatedTo(args: NavigatedData){
-    viewModel = new NewItemViewModel();
+    let shoppingListId: number = args.context['shoppingListId']
+    viewModel = new NewItemViewModel(shoppingListId);
     page = args.object as Page;
     page.bindingContext = viewModel;   
     dialog = getViewById(page, "dialog") as DockLayout;

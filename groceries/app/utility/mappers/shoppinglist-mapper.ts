@@ -7,7 +7,6 @@ const INDEX_CREATED_AT: number = 2;
 const PROPERTY_COUNT = 3;
 
 export class ShoppingListMapper implements Mapper<ShoppingList> {
-    
 
     map(source: Object[]): ShoppingList {
         if(source.length !== PROPERTY_COUNT){
