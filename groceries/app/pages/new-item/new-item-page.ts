@@ -6,11 +6,11 @@ let page: Page = undefined;
 let viewModel: NewItemViewModel = undefined;
 let dialog: DockLayout = undefined;
 let dialogOpen: boolean = false;
+let dialogAnimationPlaying = false;
 
-const ANIMATION_DURATION: number = 750; //miliseconds
+const ANIMATION_DURATION: number = 500; //miliseconds
 const LISTPICKER_ANIMATION_INTERVAL: number = 15; //miliseconds
 const LISTPICKER_ANIMATION_UNITS: number = 150;
-
 
 export function onNavigatedTo(args: NavigatedData){
     viewModel = new NewItemViewModel();
@@ -24,11 +24,14 @@ export function onUnitTap(): void{
 }
 
 function toggleDialog(){
-    dialogOpen = !dialogOpen;
-    dialogOpen ? openDialog(LISTPICKER_ANIMATION_UNITS, ANIMATION_DURATION) : closeDialog(LISTPICKER_ANIMATION_UNITS, ANIMATION_DURATION);
+    if(!dialogAnimationPlaying) {
+        dialogOpen = !dialogOpen;
+        dialogOpen ? openDialog(LISTPICKER_ANIMATION_UNITS, ANIMATION_DURATION) : closeDialog(LISTPICKER_ANIMATION_UNITS, ANIMATION_DURATION);
+    }
 }
 
 function openDialog(totalUnits: number, animationDuration: number){
+    dialogAnimationPlaying = true;
     let unitsPerInterval = (totalUnits / animationDuration) * LISTPICKER_ANIMATION_INTERVAL;
     let startY: number = totalUnits;
     let currentY: number = startY;
@@ -43,10 +46,11 @@ function openDialog(totalUnits: number, animationDuration: number){
             dialog.translateY = currentY;
         }
     },LISTPICKER_ANIMATION_INTERVAL)
-    
+    dialogAnimationPlaying = false;
 }
 
 function closeDialog(totalUnits: number, animationDuration: number){
+    dialogAnimationPlaying = true;
     let unitsPerInterval = (totalUnits / animationDuration) * LISTPICKER_ANIMATION_INTERVAL;
     let startY: number = 0;
     let currentY: number = 0;
@@ -60,5 +64,5 @@ function closeDialog(totalUnits: number, animationDuration: number){
             dialog.translateY = currentY;
         }
     },LISTPICKER_ANIMATION_INTERVAL)
-    
+    dialogAnimationPlaying = false;
 }

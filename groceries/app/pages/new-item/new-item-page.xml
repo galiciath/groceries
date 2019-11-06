@@ -1,25 +1,32 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd" navigatedTo="onNavigatedTo">
+     <Page.actionBar>
+        <ActionBar id="btn-save" title="Nieuw item" icon="">
+            <NavigationButton android.systemIcon="ic_menu_back" tap=""/>
+            <ActionBar.actionItems>
+                <ActionItem text="{{ ShowSave ? 'Opslaan' : '' }}" tap="onNewItemTap" ios.position="right" />
+            </ActionBar.actionItems>
+        </ActionBar>
+    </Page.actionBar>
     <GridLayout rows="*" columns="*" width="100%" height="100%">
         <StackLayout>
            <StackLayout class="container-input">
                 <Label text="Productnaam" class="roboto-medium" fontSize="16" textWrap="true" />
-                <TextField hint="" text="" /> 
+                <TextField hint="" text="{{ ProductName }}" /> 
             </StackLayout>
             <StackLayout class="container-input">
                 <Label text="Hoeveelheid" class="roboto-medium" fontSize="16" textWrap="true" />
-                <TextField hint="" text="{{  }}" id="textfield-quantity" horizontalAlignment="left"/> 
+                <TextField hint="" text="{{ Quantity }}" id="textfield-quantity" keyboardType="number" horizontalAlignment="left"/> 
             </StackLayout>
             <StackLayout class="container-input">
                 <Label text="Eenheid" class="roboto-medium" fontSize="16" textWrap="true" />
                 <StackLayout id="container-unit" orientation="horizontal" tap="onUnitTap">
-                  <Label text="Kilogram" textWrap="true" />
+                  <Label text="{{ SelectedUnit }}" textWrap="true" />
                   <Image id="icon-listpicker" src="res://baseline_arrow_drop_down_black_24" stretch="none" />  
                 </StackLayout>
             </StackLayout>
         </StackLayout>
         <DockLayout id="dialog" visibility="collapse" verticalAlignment="bottom">
-            <ListPicker items="{{ Units }}" selectedIndex="" verticalAlignment="bottom"></ListPicker>
+            <ListPicker items="{{ Units }}" selectedValue="{{ SelectedUnit }}" verticalAlignment="bottom"></ListPicker>
         </DockLayout>    
-    </GridLayout>
-    
+    </GridLayout>  
 </Page>
